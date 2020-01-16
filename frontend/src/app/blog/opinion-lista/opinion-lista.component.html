@@ -1,0 +1,28 @@
+<h1>Lista de Opinion</h1>
+<button routerLink="/blog/opinion" class="btn btn-success mb-2">Añadir Opinion</button>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">id_opinion</th>
+            <th scope="col">fk_id_pelicula</th>
+            <th scope="col">opinion_descripcion</th>
+            <th scope="col">opinion_fecha</th>
+            
+            <th scope="col">ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rec of records | async">
+            <th>{{ rec.id_opinion }}</th>
+            <th>{{ rec.fk_id_pelicula }}</th>
+            <th>{{ rec.opinion_descripcion }}</th>
+            <th>{{ rec.opinion_fecha }}</th>
+            
+            <td>
+                <button class="btn btn-info btn-sm" routerLink="/blog/opinion/edit/{{ rec.id_opinion }}">Edit</button>
+                <button class="btn btn-danger btn-sm" (click)="removeItem( rec.id_opinion )">Remove</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

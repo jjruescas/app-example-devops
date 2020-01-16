@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-sm-6">
+        <h1>Añadir Opinion</h1>
+        <form [formGroup]="recordForm">
+            <div class="form-group row">
+                <label for="id_opinion" class="col-sm-4 col-form-label">id_opinion</label>
+                <div class="col-sm-8">
+                    <input type="number" readonly class="form-control" id="id_opinion" aria-describedby="emailHelp" placeholder="">
+                </div>
+            </div>
+
+            
+            <div class="form-group row">
+                <label for="fk_id_pelicula" class="col-sm-4 col-form-label">fk_id_pelicula</label>
+                <div class="col-sm-8">
+                    <select formControlName="fk_id_pelicula" class="form-control" name="fk_id_pelicula" id="fk_id_pelicula">
+                        <option value="{{ pelicula.id_pelicula }}" *ngFor="let pelicula of peliculas | async">{{ pelicula.nombre_pelicula }}</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="opinion_descripcion" class="col-sm-4 col-form-label">opinion_descripcion</label>
+                <div class="col-sm-8">
+                    <input formControlName="opinion_descripcion" type="text" class="form-control" id="opinion_descripcion" placeholder="">
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="opinion_fecha" class="col-sm-4 col-form-label">opinion_fecha</label>
+                <div class="col-sm-8">
+                    <input formControlName="opinion_fecha" type="text" class="form-control" id="opinion_fecha" placeholder="">
+                </div>
+            </div>
+            
+
+            <button 
+                (click)="(editedRecordId) ? updateRecord() : saveRecord()" 
+                [disabled]="!recordForm.valid"
+                type="submit" 
+                class="btn btn-primary">{{ (editedRecordId) ? 'Update' : 'Save' }}</button>
+            <button routerLink="/blog/opinion-lista" class="btn btn-secondary">Cancelar</button>
+        </form>
+    </div>
+</div>

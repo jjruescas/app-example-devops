@@ -1,0 +1,32 @@
+<h1>Lista de Pelicula</h1>
+<button routerLink="/pelicula/pelicula" class="btn btn-success mb-2">Añadir Pelicula</button>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">fecha_estreno</th>
+            <th scope="col">fk_id_categoria</th>
+            <th scope="col">id_pelicula</th>
+            <th scope="col">nombre_pelicula</th>
+            <th scope="col">pelicula_poster</th>
+            <th scope="col">rating_pelicula</th>
+            
+            <th scope="col">ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rec of records | async">
+            <th>{{ rec.fecha_estreno }}</th>
+            <th>{{ rec.fk_id_categoria }}</th>
+            <th>{{ rec.id_pelicula }}</th>
+            <th>{{ rec.nombre_pelicula }}</th>
+            <th>{{ rec.pelicula_poster }}</th>
+            <th>{{ rec.rating_pelicula }}</th>
+            
+            <td>
+                <button class="btn btn-info btn-sm" routerLink="/pelicula/pelicula/edit/{{ rec.id_pelicula }}">Edit</button>
+                <button class="btn btn-danger btn-sm" (click)="removeItem( rec.id_pelicula )">Remove</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
