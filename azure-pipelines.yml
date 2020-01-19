@@ -26,5 +26,8 @@ steps:
     awsCredentials: 'AWS DevOps Playground'
     regionName: 'us-east-1'
     bucketName: 'test-jj-angular-01'
+    sourceFolder: './frontend/src/'
     globExpressions: '**'
-    filesAcl: 'public-read'
+    filesAcl: 'public-read''
+
+
