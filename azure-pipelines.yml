@@ -28,6 +28,4 @@ steps:
     bucketName: 'test-jj-angular-01'
     sourceFolder: './frontend/src/'
     globExpressions: '**'
-    filesAcl: 'public-read''
-
-
+    filesAcl: 'public-read'
